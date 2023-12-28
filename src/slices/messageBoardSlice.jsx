@@ -15,6 +15,7 @@ export const messageBoardSlice = createSlice({
         id: state.prevId + 1,
         message: action.payload,
       });
+      state.prevId += 1;
     },
     deleteMessage: (state, action) => {
       state.messages = state.messages.filter(({ id }) => id !== action.payload);

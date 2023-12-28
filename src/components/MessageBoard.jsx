@@ -12,6 +12,11 @@ function MessageBoard() {
 
   const dispatch = useDispatch();
 
+  function handleMessageSubmit() {
+    dispatch(addMessage(messageInput));
+    setMessageInput("");
+  }
+
   // define message component.
   function Message({ children, id }) {
     return (
@@ -55,10 +60,7 @@ function MessageBoard() {
             onChange={handleInputChange}
           />
         </label>
-        <button
-          className="submit-message-button"
-          onClick={() => dispatch(addMessage(messageInput))}
-        >
+        <button className="submit-message-button" onClick={handleMessageSubmit}>
           Submit
         </button>
       </div>
